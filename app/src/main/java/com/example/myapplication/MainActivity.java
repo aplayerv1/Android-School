@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
@@ -19,7 +20,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         TextView t = (TextView)findViewById(R.id.textView);
-        t.setVisibility(View.VISIBLE);
+        EditText tt = (EditText)findViewById(R.id.TextInput);
+        String s = String.valueOf(tt.getText());
+        t.setText(s);
 
     }
 }

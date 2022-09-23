@@ -14,12 +14,12 @@
         android:layout_marginEnd="33dp"
         android:layout_marginBottom="3dp"
         android:text="@string/i_love_android"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/switch1"
         app:layout_constraintEnd_toStartOf="@+id/imageView2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.403"
         tools:text="I love Android"
         tools:textColor="@color/black"
         tools:textSize="30sp"
@@ -46,7 +46,7 @@
         android:layout_height="57dp"
         android:layout_marginStart="27dp"
         android:layout_marginEnd="107dp"
-        android:layout_marginBottom="180dp"
+        android:layout_marginBottom="216dp"
         android:text="@string/switch_on_off"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView2"
@@ -60,12 +60,12 @@
         android:layout_marginStart="58dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="159dp"
+        android:onClick="onClick"
         android:text="@string/press_me"
         app:layout_constraintEnd_toStartOf="@+id/imageView2"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch1"
-        android:onClick="onClick" />/>
+        app:layout_constraintTop_toBottomOf="@+id/switch1" />/>
 
     <CheckBox
         android:id="@+id/checkBox"
@@ -81,5 +81,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="729dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="13dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/TextInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/i_love_androids"
+            android:textColorHint="#616161"
+            tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
