@@ -9,4 +9,5 @@
     <string name="press_me">Press Me</string>
     <string name="check_this_out">Check This Out</string>
     <string name="i_love_androids">I Love Android</string>
+    <string name="toast_fr">Label has been updated.</string>
 </resources>

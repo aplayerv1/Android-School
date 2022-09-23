@@ -3,4 +3,12 @@
     <string name="app_name">My Application</string>
     <string name="hello_world">Bounjour le Monde</string>
     <string name="button">Je suis button</string>
+    <string name="toast_fr">L\'étiquette a été mise à jour.</string>
+    <string name="flag">drapeau</string>
+    <string name="i_love_android">J\'adore Android</string>
+    <string name="america">À FAIRE</string>
+    <string name="switch_on_off">Activer/Désactiver</string>
+    <string name="press_me">Appuyez sur moi</string>
+    <string name="check_this_out">Vérifier ceci</string>
+    <string name="i_love_androids">J\'adore Android</string>
 </resources>
