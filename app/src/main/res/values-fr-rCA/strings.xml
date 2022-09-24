@@ -11,4 +11,6 @@
     <string name="press_me">Appuyez sur moi</string>
     <string name="check_this_out">Vérifier ceci</string>
     <string name="i_love_androids">J\'adore Android</string>
+    <string name="snackbar">annuler</string>
+    <string name="checked">vérifié</string>
 </resources>

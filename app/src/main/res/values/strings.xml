@@ -10,4 +10,6 @@
     <string name="check_this_out">Check This Out</string>
     <string name="i_love_androids">I Love Android</string>
     <string name="toast_fr">Label has been updated.</string>
+    <string name="snackbar">Undo</string>
+    <string name="checked">Checked</string>
 </resources>
