@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">My Application</string>
-    <string name="welcome">Welcome</string>
-    <string name="next">Next</string>
-    <string name="dontcallme">Don\'t Call me that</string>
-    <string name="thankyou">Thank you</string>
-    <string name="what_is_your_name">What is your Name?</string>
+    <string name="app_name">Mon application</string>
+    <string name="welcome">Bienvenue</string>
+    <string name="next">Suivant</string>
+    <string name="dontcallme">Ne m\'appelle pas comme ça</string>
+    <string name="thankyou">Merci</string>
+    <string name="what_is_your_name">Quel est votre nom ?</string>
 </resources>
