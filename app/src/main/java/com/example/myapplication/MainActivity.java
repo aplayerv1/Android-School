@@ -1,6 +1,11 @@
 package com.example.myapplication;
 
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContract;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -19,8 +24,18 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity{
     public static final String EXTRA_MESSAGE =  "com.example.myapplication.MESSAGE";
     public int i = 0;
-    public String msg;
+    public String msg = "";
     public SharedPreferences perf;
+    ActivityResultLauncher<Intent> startForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if(result != null || result.getResultCode()== RESULT_OK) {
+                if(result.getResultCode()==1){
+                    System.exit(0);
+                }
+            }
+        }
+    });
 
     @Override
     protected void onPause() {
@@ -40,37 +55,16 @@ public class MainActivity extends AppCompatActivity{
         Button b = (Button)findViewById(R.id.button);
         Intent intent = new Intent(this, NameActivity.class);
         perf = getSharedPreferences("welcome", MODE_PRIVATE);
-        String str = null;
-        str = perf.getString("welcome", str);
-        if(str == null) {
-            b.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    msg = String.valueOf(text.getText());
-                    intent.putExtra(EXTRA_MESSAGE, msg);
-                    startActivity(intent);
-                }
-            });
-        }
-        else {
-            int k = 0;
-            k = perf.getInt("welcome", k);
-            if (k == 1){
-            EditText texts = (EditText)findViewById(R.id.editTextTextPersonName);
-            String gt = null;
-            gt = perf.getString("welcome",gt );
-            texts.setText(gt);
-                b.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        msg = String.valueOf(text.getText());
-                        intent.putExtra(EXTRA_MESSAGE, msg);
-                        startActivity(intent);
-                    }
-                });
-            }
 
-        }
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                msg = String.valueOf(text.getText());
+                intent.putExtra(EXTRA_MESSAGE, msg);
+                startForResult.launch(intent);
+            }
+        });
+
 
     }
 

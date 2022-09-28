@@ -1,10 +1,8 @@
 package com.example.myapplication;
 
-import static android.app.PendingIntent.getActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -29,7 +27,10 @@ public class NameActivity extends AppCompatActivity {
             public void onClick(View view) {
                 SharedPreferences.Editor editor = getSharedPreferences("welcome", MODE_PRIVATE).edit();
                 editor.putString("welcome",null);
-                editor.commit();
+                editor.apply();
+                Intent intent = new Intent();
+                setResult(1, intent);
+                finish();
             }
         });
         Button bb = (Button)findViewById(R.id.button2);
@@ -39,8 +40,10 @@ public class NameActivity extends AppCompatActivity {
                 int i = 1;
                 SharedPreferences.Editor editor = getSharedPreferences("welcome", MODE_PRIVATE).edit();
                 editor.putInt("y",i);
-                editor.commit();
-                System.exit(0);
+                editor.apply();
+                Intent intent = new Intent();
+                setResult(0, intent);
+                finish();
             }
         });
 
