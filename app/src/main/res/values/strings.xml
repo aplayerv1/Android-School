@@ -1,15 +1,8 @@
 <resources>
     <string name="app_name">My Application</string>
-    <string name="hello_world">Hello World</string>
-    <string name="button">I\'m a button</string>
-    <string name="flag">flag</string>
-    <string name="i_love_android">I love Android</string>
-    <string name="america">TODO</string>
-    <string name="switch_on_off">Switch On/Off</string>
-    <string name="press_me">Press Me</string>
-    <string name="check_this_out">Check This Out</string>
-    <string name="i_love_androids">I Love Android</string>
-    <string name="toast_fr">Label has been updated.</string>
-    <string name="snackbar">Undo</string>
-    <string name="checked">Checked</string>
+    <string name="welcome">Welcome!</string>
+    <string name="next">Next</string>
+    <string name="dontcallme">Don\'t Call me that</string>
+    <string name="thankyou">Thank you</string>
+    <string name="what_is_your_name">What is your Name?</string>
 </resources>
