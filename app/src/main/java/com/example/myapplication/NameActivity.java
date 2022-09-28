@@ -30,7 +30,6 @@ public class NameActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = getSharedPreferences("welcome", MODE_PRIVATE).edit();
                 editor.putString("welcome",null);
                 editor.commit();
-                android.os.Process.killProcess(android.os.Process.myPid());
             }
         });
         Button bb = (Button)findViewById(R.id.button2);

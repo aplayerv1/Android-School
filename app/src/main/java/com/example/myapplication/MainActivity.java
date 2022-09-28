@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity{
     protected void onPause() {
         SharedPreferences.Editor editor = getSharedPreferences("welcome", MODE_PRIVATE).edit();
         editor.putString("welcome", msg);
-        editor.putInt("y",i);
+        editor.putInt("welcome",i);
         editor.commit();
         super.onPause();
     }
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity{
         perf = getSharedPreferences("welcome", MODE_PRIVATE);
         String str = null;
         str = perf.getString("welcome", str);
-        if(str != null) {
+        if(str == null) {
             b.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity{
         }
         else {
             int k = 0;
-            k = perf.getInt("y", k);
+            k = perf.getInt("welcome", k);
             if (k == 1){
             EditText texts = (EditText)findViewById(R.id.editTextTextPersonName);
             String gt = null;
