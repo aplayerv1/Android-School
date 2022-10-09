@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="Urgent">Urgent</string>
-    <string name="add">Add</string>
-    <string name="TypeHere">Type Here</string>
+    <string name="add">Ajouter</string>
+    <string name="TypeHere">Tapez ici</string>
     <string name="app_name">ListView</string>
-    <string name="item">Item</string>
+    <string name="item">Élément</string>
+    <string name="name">nom</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+    <string name="mesg">Voulez-vous supprimer ceci?</string>
+    <string name="row">La ligne sélectionnée est.</string>
 </resources>

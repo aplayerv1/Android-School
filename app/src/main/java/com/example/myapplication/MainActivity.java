@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -21,8 +23,6 @@ import com.google.android.material.textfield.TextInputEditText;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity  {
-
-    boolean bo;
     ArrayList<data> arrayList = new ArrayList<>();
     Base adapter;
     @Override
@@ -49,8 +49,16 @@ public class MainActivity extends AppCompatActivity  {
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
-                arrayList.remove(position);
-                adapterView.notifyDatasetChange
+                new AlertDialog.Builder(MainActivity.this).setTitle(R.string.mesg)
+                        .setMessage(R.string.row+position)
+                                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        arrayList.remove(position);
+                                        adapter.notifyDataSetChanged();
+                                    }
+                                }).setNegativeButton(R.string.no,null).show();
+
                 return false;
             }
         });
