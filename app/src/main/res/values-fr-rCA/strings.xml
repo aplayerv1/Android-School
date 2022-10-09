@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Mon application</string>
-    <string name="welcome">Bienvenue</string>
-    <string name="next">Suivant</string>
-    <string name="dontcallme">Ne m\'appelle pas comme ça</string>
-    <string name="thankyou">Merci</string>
-    <string name="what_is_your_name">Quel est votre nom ?</string>
+    <string name="Urgent">Urgent</string>
+    <string name="add">Add</string>
+    <string name="TypeHere">Type Here</string>
+    <string name="app_name">ListView</string>
+    <string name="item">Item</string>
 </resources>

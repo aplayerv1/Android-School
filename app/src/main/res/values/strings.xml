@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">My Application</string>
-    <string name="welcome">Welcome!</string>
-    <string name="next">Next</string>
-    <string name="dontcallme">Don\'t Call me that</string>
-    <string name="thankyou">Thank you</string>
-    <string name="what_is_your_name">What is your Name?</string>
+
+    <string name="Urgent">Urgent</string>
+    <string name="add">Add</string>
+    <string name="TypeHere">Type Here</string>
+    <string name="app_name">ListView</string>
+    <string name="item">Item</string>
+    <string name="name">name</string>
 </resources>
