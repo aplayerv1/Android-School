@@ -52,12 +52,12 @@ class jsonRead extends AsyncTask<String, Integer, String> {
             }
 
             try {
-
                 JSONArray jars = json.getJSONArray("results");
                 for(int i = 0;i< jars.length();i++){
                     data.add(new data(jars.getJSONObject(i).getString("name"),
                             jars.getJSONObject(i).getString("height"),
                             jars.getJSONObject(i).getString("mass")));
+                    Log.d("Results: "," Other " + data.get(i).getMass()  );
                 }
 
             } catch (Exception e) {
@@ -72,10 +72,13 @@ class jsonRead extends AsyncTask<String, Integer, String> {
     }
     @Override
     public void onProgressUpdate(Integer...values){
-        Log.d("Respond",">>>>"+data);
+        Log.d("Respond",">>>>"+data.toString());
         Base base = new Base(context, data);
         lv.setAdapter(base);
         base.notifyDataSetChanged();
+    }
+    public ArrayList getData(){
+        return this.data;
     }
 
 }

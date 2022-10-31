@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,12 +22,12 @@ public class DetailsFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "Name";
-    private static final String ARG_PARAM2 = "param2";
-
+    private static final String ARG_PARAM2 = "Height";
+    private static final String ARG_PARAM3 = "Mass";
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    private String mParam3;
     public DetailsFragment() {
         // Required empty public constructor
     }
@@ -40,11 +41,12 @@ public class DetailsFragment extends Fragment {
      * @return A new instance of fragment DetailsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static DetailsFragment newInstance(String param1, String param2) {
+    public static DetailsFragment newInstance(String param1, String param2,String param3) {
         DetailsFragment fragment = new DetailsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
+        args.putString(ARG_PARAM3, param3);
         fragment.setArguments(args);
         return fragment;
     }
@@ -52,24 +54,28 @@ public class DetailsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-           mParam1 = getArguments().getString(ARG_PARAM1);
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(null,container,false);
-        TextView tv = (TextView)container.findViewById(R.id.textView6);
-        TextView tv1 = (TextView)container.findViewById(R.id.textView4);
-        TextView tv2 = (TextView)container.findViewById(R.id.textView5);
+        View view = inflater.inflate(R.layout.fragment_details,container,false);
+
+        TextView tv = (TextView) view.findViewById(R.id.textView6);
+//        TextView tv1 = (TextView)container.findViewById(R.id.textView4);
+//        TextView tv2 = (TextView)container.findViewById(R.id.textView5);
+
 
         Bundle b = getArguments();
-        tv.setText(b.getString("name"));
-        tv1.setText(b.getString("height"));
-        tv2.setText(b.getString("mass"));
+
+        tv.setText(getArguments().getString("name"));
+//        tv1.setText(getArguments().getString("height"));
+//        tv2.setText(getArguments().getString("mass"));
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_details, container, false);
 
     }
+
 }

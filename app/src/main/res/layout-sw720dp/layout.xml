@@ -17,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
+        android:id="@+id/layout"
         android:layout_width="721dp"
         android:layout_height="766dp"
         android:layout_marginStart="1dp"
