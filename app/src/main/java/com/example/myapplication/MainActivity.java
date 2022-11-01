@@ -4,17 +4,23 @@ package com.example.myapplication;
 import static android.app.PendingIntent.getActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -35,10 +41,13 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity  {
     ArrayList<data> arr = new ArrayList<>();
+    private Context mContext;
+    boolean isTablet = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         ListView lv = (ListView) findViewById(R.id.ListView);
 
@@ -49,6 +58,7 @@ public class MainActivity extends AppCompatActivity  {
 
         Log.d("Respond:", "<Main>"+arr+adapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @SuppressLint("ResourceType")
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 arr=jr.getData();
@@ -58,20 +68,23 @@ public class MainActivity extends AppCompatActivity  {
                 bdl.putString("name", arr.get(i).getName());
                 bdl.putString("height", arr.get(i).getHeight());
                 bdl.putString("mass", arr.get(i).getMass());
-
-
+                DetailsFragment fragment = new DetailsFragment();
+                fragment.setArguments(bdl);
                 Log.d("Respond:", "<Main2>"+ bdl);
 
+                if (isTablet){
 
-                if (findViewById(R.id.Frame)==null){
-
-                    Fragment frag = new DetailsFragment();
-                    getSupportFragmentManager().beginTransaction().add(R.id.Frame,frag).commit();
+                    Intent intent = new Intent(getApplicationContext(), Main2Activity.class);
+                    intent.putExtras(bdl);
+                    startActivity(intent);
 
                 }else{
-                    setContentView(R.layout.fragment_details);
 
-                }
+                    androidx.fragment.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.layout, fragment);
+                    transaction.commit();
+
+          }
             }
         });
         lv.setAdapter(adapter);
@@ -80,6 +93,21 @@ public class MainActivity extends AppCompatActivity  {
 
 
 
+    }
+    private boolean checkIsTablet() {
+
+        Display display = ((Activity)   this.getApplicationContext()).getWindowManager().getDefaultDisplay();
+        DisplayMetrics metrics = new DisplayMetrics();
+        display.getMetrics(metrics);
+        Log.d("Screen",">>>" +display);
+        float widthInches = metrics.widthPixels / metrics.xdpi;
+        float heightInches = metrics.heightPixels / metrics.ydpi;
+        double diagonalInches = Math.sqrt(Math.pow(widthInches, 2) + Math.pow(heightInches, 2));
+        if (diagonalInches >= 7.0) {
+            isTablet = true;
+        }
+
+        return isTablet;
     }
 
 }

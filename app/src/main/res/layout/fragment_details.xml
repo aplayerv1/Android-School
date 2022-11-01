@@ -11,7 +11,7 @@
         android:layout_height="824dp">
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/massid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="fill_me"
@@ -19,7 +19,7 @@
             app:layout_row="2" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/heightId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="fill_me"
@@ -54,7 +54,7 @@
             app:layout_row="2" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/nameid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="fill_me"

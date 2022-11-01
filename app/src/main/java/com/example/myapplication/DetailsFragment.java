@@ -10,8 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link DetailsFragment#newInstance} factory method to
@@ -62,19 +60,21 @@ public class DetailsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_details,container,false);
 
-        TextView tv = (TextView) view.findViewById(R.id.textView6);
-//        TextView tv1 = (TextView)container.findViewById(R.id.textView4);
-//        TextView tv2 = (TextView)container.findViewById(R.id.textView5);
+        TextView tv = view.findViewById(R.id.nameid);
+        TextView tv1 = view.findViewById(R.id.heightId);
+        TextView tv2 = view.findViewById(R.id.massid);
 
+        Bundle b = this.getArguments();
+        Log.d("Results","<DF >>> "+b.get("name"));
+        tv.setText(b.getString("name"));
+        TextView aa = view.findViewById(R.id.textView2);
+            Log.d("RESULT: " ,"sssss"+tv.getText());
 
-        Bundle b = getArguments();
-
-        tv.setText(getArguments().getString("name"));
-//        tv1.setText(getArguments().getString("height"));
-//        tv2.setText(getArguments().getString("mass"));
+        tv1.setText(b.getString("height"));
+        tv2.setText(b.getString("mass"));
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_details, container, false);
+        return view;
 
     }
 
