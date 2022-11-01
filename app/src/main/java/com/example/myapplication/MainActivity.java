@@ -70,9 +70,10 @@ public class MainActivity extends AppCompatActivity  {
                 bdl.putString("mass", arr.get(i).getMass());
                 DetailsFragment fragment = new DetailsFragment();
                 fragment.setArguments(bdl);
-                Log.d("Respond:", "<Main2>"+ bdl);
+                Boolean str = checkIsTablet();
+                Log.d("Respond:", "<Main2>"+ isTablet + " "+str);
 
-                if (isTablet){
+                if (isTablet == false){
 
                     Intent intent = new Intent(getApplicationContext(), Main2Activity.class);
                     intent.putExtras(bdl);
@@ -95,15 +96,14 @@ public class MainActivity extends AppCompatActivity  {
 
     }
     private boolean checkIsTablet() {
-
-        Display display = ((Activity)   this.getApplicationContext()).getWindowManager().getDefaultDisplay();
+        Display display = ((Activity) this).getWindowManager().getDefaultDisplay();
         DisplayMetrics metrics = new DisplayMetrics();
         display.getMetrics(metrics);
-        Log.d("Screen",">>>" +display);
         float widthInches = metrics.widthPixels / metrics.xdpi;
         float heightInches = metrics.heightPixels / metrics.ydpi;
         double diagonalInches = Math.sqrt(Math.pow(widthInches, 2) + Math.pow(heightInches, 2));
-        if (diagonalInches >= 7.0) {
+        Log.d("Results",">>>   " +display+" "+diagonalInches);
+        if (diagonalInches >=6.0) {
             isTablet = true;
         }
 
